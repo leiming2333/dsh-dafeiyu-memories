@@ -1,5 +1,5 @@
 /**
- * dsh-dafeiyu-memories —— 大肥鱼记忆库 · 群鱼星图（Shoal Atlas）
+ * dsh-dafeiyu-memories —— 大肥鱼记忆库（Shoal Atlas）
  *
  * 一个仓库，两种形态：
  * 1. DSH 插件：`dsh plugin add dsh-dafeiyu-memories`，注册 8 个记忆工具；
@@ -129,7 +129,7 @@ function withPluginSubdir(base: string): string {
  * 但仍然要保证同一份配置下逐字节稳定，避免无谓地打断前缀缓存。
  */
 export const CONTEXT_HINT = [
-  '【大肥鱼记忆库 · 群鱼星图】已启用。',
+  '【大肥鱼记忆库】已启用。',
   `可用工具：submit_memory（写本地私有记忆，正文 ${CONTENT_MIN}-${CONTENT_MAX} 字）、get_memories（检索）、get_memory_stats（统计）、get_speakable_memories（朗读素材）、prepare_public_memory（生成可提 PR 的公开草稿）。`,
   '默认只检索公开库与远程聚合；读取本地私有记忆需要显式传 include_private=true。',
   '公开库许可是 CC0-1.0。任何写入公开库的动作都必须由用户显式确认，不要自动提交。',

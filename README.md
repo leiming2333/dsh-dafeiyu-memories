@@ -1,6 +1,8 @@
-# 大肥鱼记忆库 · 群鱼星图（Shoal Atlas）
+# 大肥鱼记忆库（Shoal Atlas）
 
-> 一个可安装、可直接复用的鱼记忆库：DSH 插件负责提交与检索，GitHub 公开仓库负责沉淀与分发。
+代号群鱼星图。仓库名和包名统一用 `dsh-dafeiyu-memories`，文档里简称「记忆库」。
+
+一个可安装、可直接复用的鱼记忆库：DSH 插件负责提交与检索，GitHub 公开仓库负责沉淀与分发。
 
 - **DSH 插件**：`dsh plugin add dsh-dafeiyu-memories`，给 agent 一套「记小事」的记忆工具。
 - **公开记忆库**：`memories/*.json` 是 CC0-1.0 的公开源数据，`dist/` 自动聚合，任何人可以直接 raw 拉取。
@@ -436,7 +438,7 @@ shoal-atlas
 
 ## 版本
 
-群鱼星图 v0.1「初潮」：插件骨架 + CC0 记忆库 + 自动聚合。
+v0.1「初潮」：插件骨架 + CC0 记忆库 + 自动聚合。
 
 ---
 

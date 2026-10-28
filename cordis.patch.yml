@@ -1,4 +1,4 @@
-# 大肥鱼记忆库 · 群鱼星图（Shoal Atlas）
+# 大肥鱼记忆库（Shoal Atlas）
 #
 # 只声明节点。配置项都有默认值，要覆盖就加 config，字段见 README「安装」一节。
 # 例：抓到真实心情事件名后，加 config: { enableMoodEvents: true, moodEventName: 'xxx' }

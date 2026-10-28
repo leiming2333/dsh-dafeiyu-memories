@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        > 这里是大肥鱼记忆库 · 群鱼星图（Shoal Atlas）的公开提交入口。
+        > 这里是大肥鱼记忆库（Shoal Atlas）的公开提交入口。
         > Issue 公开可见，请勿填写真实隐私。提交即同意以 CC0-1.0 公开授权。
 
         ## 投之前先看三遍
