@@ -64,7 +64,7 @@ dsh plugin add dsh-dafeiyu-memories
   name: dsh-dafeiyu-memories
   config:
     remoteUrl: 'https://raw.githubusercontent.com/leiming2333/dsh-dafeiyu-memories/main/dist/memories.array.json'
-    remoteTimeoutMs: 3000
+    remoteTimeoutMs: 8000   # 国内拉 raw 常要 3-5 秒，默认 3 秒容易超时
     defaultHalfLifeDays: 30
     enableAdapters: true
     enableMoodEvents: false      # 事件名未确认，默认关闭

@@ -141,8 +141,14 @@ export async function fetchRemoteMemories(
       elapsed_ms: Date.now() - startedAt,
     }
   } catch (error) {
-    const aborted = error instanceof Error && error.name === 'AbortError'
-    return fail(aborted ? `超时（${timeoutMs}ms）` : error instanceof Error ? error.message : String(error))
+    if (error instanceof Error && error.name === 'AbortError') {
+      return fail(`超时（${timeoutMs}ms）`)
+    }
+    const message = error instanceof Error ? error.message : String(error)
+    // fetch 的 "fetch failed" 太笼统，带上底层 cause 才能区分 DNS / TLS / 连接重置
+    const cause = (error as { cause?: { code?: string; message?: string } }).cause
+    const detail = cause?.code ?? cause?.message
+    return fail(detail ? `${message} (${detail})` : message)
   } finally {
     clearTimeout(timer)
   }
