@@ -1,3 +1,4 @@
+# 注：首次推送新增 workflow 时 GitHub 不会自动触发，改动本文件可手动触发一次。
 name: validate-memories
 
 # 只在「公开记忆 / schema / 校验脚本」变化时跑。

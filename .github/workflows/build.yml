@@ -1,3 +1,4 @@
+# 注：首次推送新增 workflow 时 GitHub 不会自动触发，改动本文件可手动触发一次。
 name: build-index
 
 # 公开种子变化 → 重新聚合 dist/；只有内容真的变了才提交。
