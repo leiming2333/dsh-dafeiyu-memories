@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/leiming2333/dsh-dafeiyu-memories/schema/memory.schema.json",
+  "title": "大肥鱼公开记忆（PublicMemory）",
+  "description": "memories/*.json 的公开字段契约。公开库只收原创、虚构/半虚构、已匿名化的短记忆，许可固定 CC0-1.0。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "fish_name",
+    "contributor",
+    "title",
+    "content",
+    "tags",
+    "memory_type",
+    "license",
+    "created_at"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9]{4}$",
+      "description": "四位数字字符串，仓库内唯一，如 0001。"
+    },
+    "fish_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "description": "这条记忆属于哪条鱼。默认「大肥鱼」。"
+    },
+    "contributor": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40,
+      "description": "署名。不想露脸就写「匿名」，不要写真实姓名。"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 40,
+      "description": "标题，2-40 字。"
+    },
+    "content": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 300,
+      "description": "正文，20-300 字，虚构或半虚构，不含真实隐私。"
+    },
+    "tags": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 16
+      },
+      "description": "标签，1-8 个，每个不超过 16 字，不可重复。"
+    },
+    "memory_type": {
+      "type": "string",
+      "enum": ["fiction", "semi-fiction"],
+      "description": "只允许 fiction（完全虚构）或 semi-fiction（半虚构）。"
+    },
+    "license": {
+      "type": "string",
+      "const": "CC0-1.0",
+      "description": "固定 CC0-1.0，提交即视为放弃著作权。"
+    },
+    "created_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "format": "date",
+      "description": "创建日期，YYYY-MM-DD。"
+    }
+  }
+}

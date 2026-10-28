@@ -1,0 +1,119 @@
+{
+  "name": "dsh-dafeiyu-memories",
+  "version": "0.1.0",
+  "description": "DSH plugin and CC0 memory library for Dafeiyu memories (Shoal Atlas).",
+  "type": "module",
+  "license": "MIT",
+  "author": "leiming2333",
+  "homepage": "https://github.com/leiming2333/dsh-dafeiyu-memories#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leiming2333/dsh-dafeiyu-memories.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leiming2333/dsh-dafeiyu-memories/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "dafeiyu",
+    "memories",
+    "memory-library",
+    "cc0",
+    "shoal-atlas"
+  ],
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "src",
+    "memories",
+    "dist",
+    "schema",
+    "docs",
+    "scripts",
+    "cordis.patch.yml",
+    "README.md",
+    "CONTRIBUTING.md",
+    "PRIVACY.md",
+    "CODE_OF_CONDUCT.md",
+    "LICENSE",
+    "LICENSE-CONTENT"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "check": "python scripts/check_memory.py",
+    "aggregate": "python scripts/build_index.py",
+    "test": "node scripts/selftest.mjs",
+    "verify": "npm run build && npm run check && npm run aggregate",
+    "prepublishOnly": "npm run build && npm test && npm run check && npm run aggregate",
+    "probe:remote": "node scripts/probe-remote.mjs"
+  },
+  "dependencies": {
+    "@deepseek-ai/dsh-tools": "^0.0.1-rc.1"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=0.1.0",
+    "dsh-fish-memory": "*",
+    "dsh-feiyu-mood": "*",
+    "dsh-yu-mood": "*",
+    "dsh-speak-up": "*",
+    "dsh-tts-bridge": "*",
+    "dsh-speak": "*",
+    "dsh-dafeiyu-pet": "*",
+    "dsh-qq-bridge": "*",
+    "dsh-qqbot": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": false
+    },
+    "dsh-fish-memory": {
+      "optional": true
+    },
+    "dsh-feiyu-mood": {
+      "optional": true
+    },
+    "dsh-yu-mood": {
+      "optional": true
+    },
+    "dsh-speak-up": {
+      "optional": true
+    },
+    "dsh-tts-bridge": {
+      "optional": true
+    },
+    "dsh-speak": {
+      "optional": true
+    },
+    "dsh-dafeiyu-pet": {
+      "optional": true
+    },
+    "dsh-qq-bridge": {
+      "optional": true
+    },
+    "dsh-qqbot": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

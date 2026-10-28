@@ -1,0 +1,44 @@
+name: validate-memories
+
+# 只在「公开记忆 / schema / 校验脚本」变化时跑。
+# 插件代码的构建验证放在另一个 workflow（如需可自行添加 npm ci && npm run build）。
+
+on:
+  pull_request:
+    paths:
+      - 'memories/**.json'
+      - 'schema/memory.schema.json'
+      - 'scripts/check_memory.py'
+      - '.github/workflows/validate.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'memories/**.json'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: 校验公开记忆
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 准备 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 安装校验依赖
+        run: python -m pip install --upgrade pip jsonschema
+
+      - name: 运行 check_memory.py
+        run: python scripts/check_memory.py
+
+      - name: 提示
+        if: failure()
+        run: |
+          echo "::notice::校验没通过。请对照 docs/review-checklist.md 自查："
+          echo "::notice::1) 正文 20-300 字；2) 无真实姓名/学校/单位/住址/联系方式；3) license 固定 CC0-1.0。"

@@ -1,0 +1,66 @@
+CC0-1.0 声明 —— 适用于本仓库的记忆内容
+==========================================
+
+适用范围
+--------
+
+本声明适用于本仓库 `memories/` 目录下的全部内容，以及由这些内容聚合生成的
+`dist/memories.json`、`dist/memories.array.json`。
+
+具体包括每条记忆的 9 个公开字段：`id`、`fish_name`、`contributor`、
+`title`、`content`、`tags`、`memory_type`、`license`、`created_at`。
+
+本声明**不适用**于本仓库的源代码（`src/`、`scripts/`、`schema/` 等），
+源代码按根目录 `LICENSE`（MIT）授权。
+
+
+声明
+----
+
+在适用法律允许的最大范围内，与本作品相关的著作权及邻接权（包括但不限于
+复制、发行、展览、表演、改编、翻译、汇编等权利）已被**明示放弃**。
+
+本作品按「现状」提供，不附带任何形式的明示或默示担保，包括但不限于
+适销性、特定用途适用性、权利完整性或不侵权的担保。
+
+任何人均可为任何目的——包括商业目的——复制、修改、分发、演绎本作品，
+无需获得许可，也无需署名。
+
+
+法律文本
+--------
+
+本声明是对 CC0 1.0 Universal 公共领域贡献宣言的简要说明。
+具有法律效力的完整文本见：
+
+    https://creativecommons.org/publicdomain/zero/1.0/legalcode
+    https://creativecommons.org/publicdomain/zero/1.0/legalcode.zh-Hans
+
+中文摘要（非正式文本）：
+
+    https://creativecommons.org/publicdomain/zero/1.0/deed.zh-Hans
+
+
+提交即同意
+----------
+
+向 `memories/` 提交内容（Pull Request 或 Issue）即表示投稿人确认：
+
+1. 该内容为本人原创，或本人有权按 CC0-1.0 处置；
+2. 该内容不含真实个人信息（姓名、学校、单位、住址、联系方式等）；
+3. 该内容不涉及可识别的未成年人，不侵犯第三方隐私；
+4. 同意按上述条款放弃该内容的著作权。
+
+已公开的内容**不可撤回**：即使后续删除文件，已被 fork、下载、镜像或索引的
+副本仍可能继续存在。投稿前请确认这一点。
+
+
+署名
+----
+
+CC0 不要求署名。如果你愿意标注来源，可以写：
+
+    大肥鱼记忆库 · 群鱼星图
+    https://github.com/leiming2333/dsh-dafeiyu-memories
+
+但这只是礼貌，不是义务。

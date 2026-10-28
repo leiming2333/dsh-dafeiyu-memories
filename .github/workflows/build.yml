@@ -1,0 +1,53 @@
+name: build-index
+
+# 公开种子变化 → 重新聚合 dist/；只有内容真的变了才提交。
+# 脚本本身是幂等的（不写时间戳），所以「无 diff」是常态而不是异常。
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'memories/**.json'
+      - 'scripts/build_index.py'
+      - '.github/workflows/build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-index
+  cancel-in-progress: true
+
+jobs:
+  aggregate:
+    name: 聚合 dist/
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 准备 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 安装校验依赖
+        run: python -m pip install --upgrade pip jsonschema
+
+      - name: 先校验，坏数据不进 dist
+        run: python scripts/check_memory.py
+
+      - name: 聚合
+        run: python scripts/build_index.py
+
+      - name: 有 diff 才提交
+        run: node scripts/ci-commit-dist.mjs --commit
+
+      - name: 提交失败时的提示
+        if: failure()
+        run: |
+          echo "::warning::如果 push 被拒绝，多半是分支保护规则。"
+          echo "::warning::请允许 github-actions[bot] 写入 main，或改为由维护者手动跑 python scripts/build_index.py 后提交。"

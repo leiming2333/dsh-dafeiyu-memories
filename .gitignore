@@ -1,0 +1,20 @@
+# 依赖
+node_modules/
+
+# 构建产物（npm publish 时由 prepublishOnly 重新生成）
+lib/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 本地私有记忆的兜底：万一有人把 dataDir 指到了仓库里
+.data/
+
+# 注意：dist/ 必须提交，它是公开库的聚合索引，不是构建产物
